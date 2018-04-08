@@ -11,16 +11,19 @@ import dagger.Provides;
 
 public class MainPresenter {
 
-    @Inject
-    MainPresenter() {
+    private MainView mView;
 
+    @Inject
+    MainPresenter(MainView view) {
+        mView = view;
     }
 
     public void loadData() {
         //调用model层方法，加载数据
 
         Log.d(Constant.AppDebugFilter,"MainPresenter, loadData");
-
+        //回调方法成功时
+        mView.updateUI();
     }
 
 }

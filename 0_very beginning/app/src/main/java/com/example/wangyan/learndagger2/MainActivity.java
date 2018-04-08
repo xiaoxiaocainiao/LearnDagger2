@@ -7,17 +7,13 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends AppCompatActivity {
 
     /*
     目的:
     1:可以随时更换Presenter
     2:也可以同时绑定两个Present
      */
-
-
-    @Inject
-    SplashPresent splashPresenter;
 
     @Inject
     MainPresenter mainPresenter;
@@ -28,34 +24,27 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
 
 
+        DaggerMainComponent.create().inject(this);
+
         /*
-        1:  DaggerMainComponent是自动生成的，在MainComponent前面加了前缀Dagger
-
-        2： mainModule是自动的, 是把类MainModule的首字母小写了
-
-        3： 第一个builder()函数是为创建一个容器,可以方便注入module
-
-        4： 第二个builder()函数是为了生成component（通过第一个builder()创建的容器生成component）
-
-        5:  得到component后，就可以调用自定义的component中的函数了。
+        如果不调用inject方法,
+        直接调用DaggerMainComponent.create().
+        mainPresenter == null
          */
-
-        DaggerMainComponent.builder().mainModule(new MainModule(this)).build().inject(this);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        mainPresenter.loadData();
+        if(mainPresenter == null) {
 
-        splashPresenter.loadData();
+            Log.d(Constant.AppDebugFilter, "mainPresenter等于null!");
+        } else {
+
+            mainPresenter.loadData();
+        }
+
     }
 
-    @Override
-    public void updateUI() {
-
-        Log.d(Constant.AppDebugFilter,"MainActivity, updateUI");
-    }
 }
