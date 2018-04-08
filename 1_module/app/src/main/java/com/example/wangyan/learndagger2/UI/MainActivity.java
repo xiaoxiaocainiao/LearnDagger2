@@ -1,9 +1,15 @@
-package com.example.wangyan.learndagger2;
+package com.example.wangyan.learndagger2.UI;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.example.wangyan.learndagger2.Constants.Constant;
+import com.example.wangyan.learndagger2.DI.DaggerMainComponent;
+import com.example.wangyan.learndagger2.DI.MainModule;
+import Present.MainPresenter;
+import com.example.wangyan.learndagger2.R;
+import Present.SplashPresent;
 
 import javax.inject.Inject;
 
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         5:  得到component后，就可以调用自定义的component中的函数了。
          */
 
+        //DaggerMainComponent.builder().mainModule(new MainModule(this)).build().inject(this);
         DaggerMainComponent.builder().mainModule(new MainModule(this)).build().inject(this);
 
     }

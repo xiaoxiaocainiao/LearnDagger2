@@ -1,4 +1,6 @@
-package com.example.wangyan.learndagger2;
+package com.example.wangyan.learndagger2.DI;
+
+import com.example.wangyan.learndagger2.UI.MainView;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,7 +18,7 @@ public class MainModule {
     //module必须添加相应的providier，这个providier的函数名字无所谓，返回值必须和@Inject相对应
 
     @Provides
-    MainView provideMainView() {
+    public MainView provideMainView() {
         return mView;
     }
 }

@@ -1,4 +1,6 @@
-package com.example.wangyan.learndagger2;
+package com.example.wangyan.learndagger2.DI;
+
+import com.example.wangyan.learndagger2.UI.MainActivity;
 
 import dagger.Component;
 

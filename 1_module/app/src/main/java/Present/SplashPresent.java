@@ -1,6 +1,9 @@
-package com.example.wangyan.learndagger2;
+package Present;
 
 import android.util.Log;
+
+import com.example.wangyan.learndagger2.Constants.Constant;
+import com.example.wangyan.learndagger2.UI.MainView;
 
 import javax.inject.Inject;
 

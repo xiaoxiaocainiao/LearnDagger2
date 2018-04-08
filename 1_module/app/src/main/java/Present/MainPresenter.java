@@ -1,12 +1,11 @@
-package com.example.wangyan.learndagger2;
+package Present;
 
 import android.util.Log;
 
-import javax.inject.Inject;
+import com.example.wangyan.learndagger2.Constants.Constant;
+import com.example.wangyan.learndagger2.UI.MainView;
 
-import dagger.Component;
-import dagger.Module;
-import dagger.Provides;
+import javax.inject.Inject;
 
 
 public class MainPresenter {
